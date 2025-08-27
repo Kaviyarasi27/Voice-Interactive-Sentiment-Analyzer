@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Voice Sentiment Analyzer — Multi-language</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white shadow-2xl rounded-2xl p-6 w-full max-w-3xl">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-2xl sm:text-3xl font-bold">🎤 Voice Sentiment Analyzer — Multi-language</h1>
+      <select id="langSelect" class="border rounded-lg p-2" aria-label="Language">
+        <option value="en" selected>English</option>
+        <option value="ta">Tamil (தமிழ்)</option>
+        <option value="hi">Hindi (हिन्दी)</option>
+        <option value="te">Telugu (తెలుగు)</option>
+        <option value="ml">Malayalam (മലയാളം)</option>
+        <option value="fr">French (Français)</option>
+        <option value="es">Spanish (Español)</option>
+        <option value="de">German (Deutsch)</option>
+        <option value="ar">Arabic (العربية)</option>
+      </select>
+    </div>
+
+    <!-- Input -->
+    <textarea id="inputText"
+      class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 mb-4"
+      placeholder="Type or speak your text here..."></textarea>
+
+    <div class="flex gap-2 mb-4">
+      <button id="analyzeBtn"
+        class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+        🔍 Analyze Sentiment
+      </button>
+
+      <button id="voiceBtn"
+        class="w-16 bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600 transition">
+        🎙️
+      </button>
+
+      <button id="speakBtn"
+        class="w-16 bg-gray-800 text-white py-2 rounded-lg font-semibold hover:bg-black transition"
+        title="Speak result">
+        🔊
+      </button>
+    </div>
+
+    <div id="result" class="mt-2 text-center text-xl font-bold"></div>
+    <div id="confidence" class="text-center text-gray-600"></div>
+
+    <!-- Chart -->
+    <canvas id="sentimentChart" class="mt-6"></canvas>
+
+    <!-- History -->
+    <h2 class="text-lg font-semibold mt-6">📜 History</h2>
+    <ul id="history" class="list-disc ml-6 text-gray-700"></ul>
+
+    <p class="mt-4 text-sm text-gray-500">
+      Note: Voice features need a browser with Web Speech API (Chrome/Edge). Speech recognition & voices vary by OS/browser.
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
